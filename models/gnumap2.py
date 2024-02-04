@@ -149,8 +149,8 @@ class GNUMAP2(nn.Module):
             # cov_matrix = torch.cov(torch.stack((rp,rq)))
             # corr = cov_matrix[0, 1] / torch.sqrt(cov_matrix[0, 0] * cov_matrix[1, 1])
             #loss = self.loss_function(p, q, reg, n_items) - corr # good for sphere with default ab_params
-            #loss = self.loss_function(p, q, reg, n_items)
-            loss = self.sampling_loss_function(p, q, reg, n_items,edge_index)
+            loss = self.loss_function(p, q, reg, n_items)
+            #loss = self.sampling_loss_function(p, q, reg, n_items,edge_index)
             loss.backward()
             optimizer.step()
 
